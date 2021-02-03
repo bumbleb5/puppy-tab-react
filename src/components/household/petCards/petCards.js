@@ -6,22 +6,26 @@ class PetCards extends React.Component {
         return (
             <div className="PetCards">
                     <div className="PetPictureFrame">
-                        <a href="#0"><img className="PetPicture" src="../../../media/paz.jpg" alt="paz"></img></a>
+                        <a href="#0"><img className="PetPicture" src={ this.props.pet.imgSrc } alt={ this.props.pet.name }></img></a>
                     </div>
                 <table>
-                    <caption>Paz</caption>
+                    <caption>{ this.props.pet.name }</caption>
                     <tbody>
                         <tr>
                             <th>Age</th>
-                            <td>5 </td>
+                            <td>{ this.props.pet.age } years</td>
+                        </tr>
+                        <tr>
+                        <th>Age in { this.props.pet.species } years</th>
+                            <td>{ this.props.pet.ageInSpeciesYears } years</td>
+                        </tr>
+                        <tr>
+                            <th>Breed</th>
+                            <td>{ this.props.pet.breed }</td>
                         </tr>
                         <tr>
                             <th>Vaccinations Current</th>
                             <td>Yes</td>
-                        </tr>
-                        <tr>
-                            <th>Food</th>
-                            <td>2c Eukanuba Chicken</td>
                         </tr>
                     </tbody>
                 </table>

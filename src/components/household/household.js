@@ -7,7 +7,11 @@ class Household extends React.Component {
     render() {
         return (
             <div className="Household">
-                <PetCards />
+                {
+                    this.props.pets.map(pet => {
+                        return < PetCards pet={ pet }/>
+                    })
+                }
             </div>
         );
     };
