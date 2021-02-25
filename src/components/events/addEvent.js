@@ -1,13 +1,11 @@
 import React from 'react';
 
-class About extends React.Component {
+class addEvent extends React.Component {
     render() {
         return (
             <div>
-                <h1>About PuppyTab</h1>
+                <h1>Add Event</h1>
             </div>
         );
     }
 }
-
-export default About;

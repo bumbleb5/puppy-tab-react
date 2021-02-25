@@ -26,7 +26,6 @@ class Cat extends Pet {
             return 28;
         }
         else {
-            let base = 24;
             let newAge = this.age -2;
             return (newAge * 4) + 24;
         }

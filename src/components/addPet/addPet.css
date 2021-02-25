@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+}
+
+#addPetForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 15px;
+    justify-content: center;
+    justify-items: stretch;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#addPetTitle {
+    font-size: 40px;
+    padding: 15px 0 15px 0;
+}
+
+form {
+    margin: 10px;
+}
+
+.formField {
+    padding: 15px 5px;
+}
+
+label {
+    font-size: 25px;
+    padding: 5px;
+    display: inline-block;
+}
+
+.radioOptionLabel {
+    margin: 10px 0px;
+}
+
+input[type=text], input[type=date] {
+    width: 80%;
+    max-width: 360px;
+}
+
+input[type=radio] {
+    width: auto;
+    margin: 10px 0;
+}
+
+input {
+    padding: 15px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    font-family: inherit;
+    font-size: 20px;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 15px 10px;
+    font-size: 18px;
+    font-family: inherit;
+    border-radius: 5px;
+    border-width: thin;
+    border-color: #011936;
+    width: 100px;
+}
