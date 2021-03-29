@@ -5,11 +5,13 @@
 #addPetForm {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    row-gap: 15px;
+    row-gap: 10px;
     justify-content: center;
     justify-items: stretch;
     max-width: 800px;
     margin: 0 auto;
+    max-height: 72vh;
+
 }
 
 #addPetTitle {
@@ -38,6 +40,10 @@ label {
 input[type=text], input[type=date] {
     width: 80%;
     max-width: 360px;
+}
+
+input[type=text] {
+    font-size: 30px;
 }
 
 input[type=radio] {

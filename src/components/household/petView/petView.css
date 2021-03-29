@@ -1,0 +1,91 @@
+#individualPetView {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-evenly;
+    align-content: space-around;
+    align-items: stretch;
+    /* background-color: #FAFAFA;
+    border: 2px solid #011936;
+    border-radius: 25px; */
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 10px;
+    height: 85vh;
+    width: 100%;
+}
+
+.PetView tr {
+    background-color: #FAFAFA;
+}
+
+.PetView table {
+    border-spacing: 10px;
+    font-size: 30px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #011936;
+    padding: 10px;
+    min-height: 60vh;
+    min-width: 50vw;
+    max-width: 65vw;
+}
+
+#tableHead {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 25px;
+    min-width: 20vw;
+    justify-self: stretch;
+    align-self: stretch;
+}
+
+#tableHead h3 {
+    font-size: 30px;
+}
+
+#petInfoTable {
+    min-width: 50vw;
+    min-height: 70vh;
+}
+
+#petInfoRemimders {
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    align-items: center;
+    justify-content: space-evenly;
+    min-width: 20vw;
+}
+
+.bigText {
+    font-size: 30px;
+}
+
+.smallText {
+    font-size: 25px;
+}
+
+#petName {
+    font-size: 60px;
+}
+
+.petPicture {
+    object-fit: fill;
+    height: 300px;
+    width: auto;
+}
+
+.petPictureContainer {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/*1000 px break point*/
+

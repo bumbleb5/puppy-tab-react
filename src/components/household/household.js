@@ -9,7 +9,7 @@ class Household extends React.Component {
             <div className="Household">
                 {
                     this.props.pets.map(pet => {
-                        return < PetCards pet={ pet }/>
+                        return < PetCards pet={ pet } key={ pet.name }/>
                     })
                 }
             </div>

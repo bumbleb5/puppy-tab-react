@@ -14,22 +14,22 @@
     box-sizing: border-box;
 }
 
-table, tbody, th, tr, td {
+.PetCards table, .PetCards tbody, .PetCards th, .PetCards tr, .PetCards td {
     font-size: 30px;
     font-family: 'Roboto Condensed', sans-serif;
     color: #011936;
     padding: 10px;
 }
 
-th {
+.PetCards th {
     text-align: left;
 }
 
-td {
+.PetCards td {
     text-align: left;
 }
 
-table caption {
+.PetCards table caption {
     font-size: 50px;
     font-family: 'Roboto Condensed', sans-serif;
     color: #011936;

@@ -1,12 +1,14 @@
 import React from 'react';
 import './petCards.css';
+import { Link } from 'react-router-dom';
+
 
 class PetCards extends React.Component {
     render() {
         return (
             <div className="PetCards">
                     <div className="PetPictureFrame">
-                        <a href="#0"><img className="PetPicture" src={ this.props.pet.imgSrc } alt={ this.props.pet.name }></img></a>
+                        <Link className="petPictureLink" to="/petView"><img className="PetPicture" src={ this.props.pet.imgSrc } alt={ this.props.pet.name }></img></Link>
                     </div>
                 <table>
                     <caption>{ this.props.pet.name }</caption>

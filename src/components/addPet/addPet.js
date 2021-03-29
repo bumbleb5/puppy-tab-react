@@ -8,39 +8,39 @@ class AddPet extends React.Component {
                 <h1 id="addPetTitle">Add Pet</h1>
                 <form id="addPetForm" name="addPetForm">
                     <div className="formField">
-                        <label for="petName">Name</label><br/>
-                        <input type="text" id="petName" name="peName"/>
+                        <label htmlFor="addPetName">Name</label><br/>
+                        <input type="text" id="addPetName" name="addPetName"/>
                     </div>
                     <div className="formField">
                         <label>Species</label><br/>
                         <input type="radio" id="petSpeciesDog" name="petSpecies"/>
-                        <label for="petSpeciesDog" className="radioOptionLabel">Dog</label>
+                        <label htmlFor="petSpeciesDog" className="radioOptionLabel">Dog</label>
                         <input type="radio" id="petSpeciesCat" name="petSpecies"/>
-                        <label for="petSpeciesCat" className="radioOptionLabel">Cat</label>
+                        <label htmlFor="petSpeciesCat" className="radioOptionLabel">Cat</label>
                         <input type="radio" id="petSpeciesOther" name="petSpecies"/>
-                        <label for="petSpeciesOther" className="radioOptionLabel">Other</label>
+                        <label htmlFor="petSpeciesOther" className="radioOptionLabel">Other</label>
                     </div>
                     <div className="formField">
-                        <label for="petBirthDate">Birthday</label><br/>
+                        <label htmlFor="petBirthDate">Birthday</label><br/>
                         <input type="date" id="petBirthDate" name="petBirthDate"/>
                     </div>
                     <div className="formField">
-                        <label for="petSex">Sex</label><br/>
+                        <label>Sex</label><br/>
                         <input type="radio" id="sexMale" name="petSex"/>
-                        <label for="sexMale" className="radioOptionLabel">Male</label>
+                        <label htmlFor="sexMale" className="radioOptionLabel">Male</label>
                         <input type="radio" id="sexFemale" name="petSex"/>
-                        <label for="sexFemale" className="radioOptionLabel">Female</label>
+                        <label htmlFor="sexFemale" className="radioOptionLabel">Female</label>
                     </div>
                     <div className="formField">
-                        <label for="vetClinicName">Veterinarian</label><br/>
+                        <label htmlFor="vetClinicName">Veterinarian</label><br/>
                         <input type="text" id="vetClinicName" name="vetClinicName"/>
                     </div>
                     <div className="formField">
-                        <label for="petMeds">Medications</label><br/>
+                        <label htmlFor="petMeds">Medications</label><br/>
                         <input type="text" id="petMeds" name="petMeds"/>
                     </div>
                     <div className="formField">
-                        <label for="petBreed">Breed</label><br/>
+                        <label htmlFor="petBreed">Breed</label><br/>
                         <input type="text" id="petBreed" name="petBreed"/>
                     </div>
                 </form>
