@@ -8,7 +8,7 @@ class AddPetMedsInput extends React.Component {
         return (
             <div className="formField">
                 <label htmlFor="petMeds">Medications</label><br/>
-                <input type="text" id="petMeds" name="petMeds" onChange={ this.props.handleInputChange }/>
+                <input type="text" id="petMeds" name="petMeds" value={ this.props.value } onChange={ this.props.handleChange }/>
             </div>
         );
     }
