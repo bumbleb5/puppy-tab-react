@@ -49,7 +49,7 @@ function petProcessor (petObj) {
     processedPet.name = petObj._name;
     processedPet.species = petObj._species;
     processedPet.sex = petObj._sex;
-    processedPet.imgSrc = petObj._imgScr;
+    processedPet.imgSrc = petObj._imgSrc;
 
     if (processedPet.species === 'dog') {
         processedPet.breed = petObj._breed;
