@@ -2,9 +2,6 @@ import React from 'react';
 import Household from './household/household.js';
 import petProcessor from './petProcessor';
 // this is where i need to call API
-//import petArr from './household/pets/allPets';
-
-
 
 class Home extends React.Component {
     constructor(props) {

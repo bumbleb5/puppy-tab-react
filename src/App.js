@@ -13,7 +13,7 @@ function App() {
   return (
     <main className="App">
         <Nav />
-        <Switch>
+        <Switch basename="/">
             <Route path="/addPet">
                 <AddPet />
             </Route>

@@ -1,8 +1,8 @@
 import Pet from './pet.js';
 
 class Dog extends Pet {
-    constructor(name, species, sex, birthYear, birthMonth, imgSrc, breed) {
-        super(name, species, sex, birthYear, birthMonth, imgSrc);
+    constructor(name, species, sex, birthMonth, birthYear, imgSrc, breed) {
+        super(name, species, sex, birthMonth, birthYear, imgSrc);
         this._breed = breed;
     }
     get breed() {

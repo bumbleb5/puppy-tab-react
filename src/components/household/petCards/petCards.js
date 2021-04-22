@@ -2,7 +2,7 @@ import React from 'react';
 import './petCards.css';
 import { Link } from 'react-router-dom';
 
-
+// image source is not working correctly
 
 class PetCards extends React.Component {
     render() {

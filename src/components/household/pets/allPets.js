@@ -1,5 +1,6 @@
 import Dog from './dog';
 import Cat from './cat';
+import Pet from './pet';
 
 const paz = new Dog('Paz', 'dog', 'f', 2013, 5, '../../../../public/media/paz.jpg', 'ACD mix');
 const violet = new Dog('Violet', 'dog', 'f', 2013, 7, '../../../../public/media/violet.jpg', 'bull breed mix');
@@ -9,4 +10,4 @@ const kitten = new Cat('kitten', 'cat', 'm', 2020, 12, '../../../../public/media
 
 const petArr = [paz, violet, sunny, kisuke, kitten];
 
-export default petArr;
+export { Dog, Cat, Pet };
