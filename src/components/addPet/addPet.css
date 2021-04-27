@@ -33,8 +33,21 @@ label {
     display: inline-block;
 }
 
-.radioOptionLabel {
+/* .radioOptionLabel {
     margin: 10px 0px;
+} */
+
+.speciesDropDown {
+    width: 60%;
+    display: block;
+    margin: 8px auto;
+    font-size: 20px;
+    font-family: inherit;
+    border-radius: 10px;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+    padding: 10px 15px;
+
 }
 
 input[type=text], input[type=date] {
@@ -46,17 +59,17 @@ input[type=text] {
     font-size: 30px;
 }
 
-input[type=radio] {
+/* input[type=radio] {
     width: auto;
     margin: 10px 0;
-}
+} */
 
 input {
     padding: 15px;
     margin: 8px 0;
     border-radius: 10px;
-    border:0;
-    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
     font-family: inherit;
     font-size: 20px;
 }
