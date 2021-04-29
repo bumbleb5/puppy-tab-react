@@ -10,7 +10,7 @@ import AddPetSubmitButton from './addPetSubmitButton';
 
 function uuidv4() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-      var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+      let r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
       return v.toString(16);
     });
 }
@@ -31,6 +31,7 @@ class AddPetForm extends React.Component {
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handlePetNameInput = this.handlePetNameInput.bind(this);
     }
 
     handleInputChange(e) {
@@ -40,22 +41,38 @@ class AddPetForm extends React.Component {
         console.log(this.state);
     }
 
+    // if there is no id assigned, assign an id, else just set state with name
+    handlePetNameInput(e) {
+        if (this.state.petID === '') {
+            let randomPetID = uuidv4();
+            this.setState({
+                petID: randomPetID,
+                addPetName: e.target.value
+            });
+        } else {
+            this.setState({
+                addPetName: e.target.value
+            });
+        }
+        
+    }
+
     handleSubmit(event) {
-        alert('A profile was submitted for ' + this.state.addPetName);
         event.preventDefault();
-        const petID = uuidv4();
-        this.setState({ petID: petID });
+        //let petID = uuidv4();
+        //this.setState({ petID: petID });
         const stringifiedPet = JSON.stringify(this.state);
-        console.log(stringifiedPet);
         localStorage.setItem(this.state.petID, stringifiedPet);
+        console.log(stringifiedPet);
+        alert('A profile was submitted for ' + this.state.addPetName);
     }
 
     render() {
         return (
             <div>
                 <h1 id="addPetTitle">Add Pet</h1>
-                <form id="addPetForm" name="addPetForm" onSubmit={ this.handleSubmit }>
-                    <AddPetNameInput handleChange={ this.handleInputChange } value={ this.state.addPetName }/>
+                <form id="addPetForm" name="addPetForm" className="addPetForm" onSubmit={ this.handleSubmit }>
+                    <AddPetNameInput handleChange={ this.handlePetNameInput } value={ this.state.addPetName }/>
                     <AddPetSpeciesInput handleChange={ this.handleInputChange } value={ this.state.petSpecies }/>
                     <AddPetBirthdateInput handleChange={ this.handleInputChange } value={ this.state.petBirthDate }/>
                     <AddPetSexInput handleChange={ this.handleInputChange } value={ this.state.petSex }/> 

@@ -8,33 +8,60 @@ import AddEvent from './components/events/addEvent';
 import About from './components/nav/about';
 import Error from './components/nav/error';
 import PetView from './components/household/petView/petView';
+import petProcessor from './components/petProcessor';
 
-function App() {
-  return (
-    <main className="App">
-        <Nav />
-        <Switch basename="/">
-            <Route path="/addPet">
-                <AddPet />
-            </Route>
-            <Route path="/addEvent">
-                <AddEvent />
-            </Route>
-            <Route path="/about">
-                <About />
-            </Route>
-            <Route path="/petView">
-                <PetView />
-            </Route>
-            <Route exact path="/">
-                <Home />
-            </Route>
-            <Route>
-                <Error />
-            </Route>
-        </Switch>
-    </main>
-  );
+class App extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            pets: []
+        };
+    }
+
+    componentDidMount() {
+        fetch('/pets')
+        .then(res => res.json())
+        .then(data => {
+            let petArr = data;
+            petArr = petArr.map(pet => {
+                return petProcessor(pet);
+            });
+            this.setState({
+                pets: petArr
+            });
+            console.log(this.state);
+        });
+    }
+
+    render() {
+        return (
+            <main className="App">
+                <Nav />
+                <Switch basename="/">
+                    <Route path="/addPet">
+                        <AddPet />
+                    </Route>
+                    <Route path="/addEvent">
+                        <AddEvent pets={ this.state.pets }/>
+                    </Route>
+                    <Route path="/about">
+                        <About />
+                    </Route>
+                    <Route path="/petView">
+                        <PetView />
+                    </Route>
+                    <Route exact path="/">
+                        <Home pets={ this.state.pets }/>
+                    </Route>
+                    <Route>
+                        <Error />
+                    </Route>
+                </Switch>
+            </main>
+        );
+    }
+    
 }
 
 export default App;

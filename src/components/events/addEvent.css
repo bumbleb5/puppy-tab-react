@@ -2,7 +2,8 @@
     box-sizing: border-box;
 }
 
-#addPetForm {
+/*CLASSNAME FOR ALL EVENT FORMS*/
+.addEventForm {
     display: grid;
     grid-template-columns: 1fr 1fr;
     row-gap: 10px;
@@ -11,49 +12,44 @@
     max-width: 800px;
     margin: 0 auto;
     max-height: 72vh;
-
 }
 
-#addPetTitle {
+.addEventFormTitle {
     font-size: 40px;
     padding: 15px 0 15px 0;
 }
 
-.addPetForm {
-    margin: 10px;
-}
-
-.addPetForm .formField {
+.addEventForm .formField {
     padding: 15px 5px;
 }
 
-.addPetForm .addPetFormLabel {
+.addEventForm .addEventFormLabel {
     font-size: 25px;
     padding: 5px;
     display: inline-block;
     margin: 0px 5px;
 }
 
-.addPetForm .selectDropDown {
-    width: 60%;
+.addEventForm .selectPetDropDown {
+    width: 75%;
     display: block;
     margin: 0px auto;
-    font-size: 20px;
+    font-size: 25px;
     font-family: inherit;
     border-radius: 10px;
     border: 0;
     box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
-    padding: 10px 15px;
+    padding: 15px 15px;
     height: 60px;
 }
 
-#petBirthDate {
+#vetEventDate {
     width: 75%;
     max-width: 360px;
     height: 60px;
 }
 
-.addPetForm .addPetInput {
+.addEventForm .addEventInput {
     padding: 15px;
     margin: 8px 0;
     width: 75%;
@@ -66,17 +62,25 @@
     height: 60px;
 }
 
-.addPetForm .addPetRadioButton {
+#vetEventNotes {
+    grid-column-start: 1;
+    grid-column-end: 2 span;
+}
+
+.addEventForm .vetEventNotes {
     padding: 15px;
     margin: 8px 0;
+    width: 100%;
     max-width: 360px;
     border-radius: 10px;
     border: 0;
+    box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
     font-family: inherit;
     font-size: 25px;
+    height: 160px;
 }
 
-#addPetSubmitButton {
+#eventSubmitButton {
     padding: 10px 15px;
     margin: 15px 10px;
     font-size: 18px;
