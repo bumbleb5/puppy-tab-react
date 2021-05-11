@@ -9,6 +9,10 @@ import About from './components/nav/about';
 import Error from './components/nav/error';
 import PetView from './components/household/petView/petView';
 import petProcessor from './components/petProcessor';
+import AddVetEventForm from './components/events/addEventComponents/addVetEventForm';
+import AddMedEventForm from './components/events/addEventComponents/addMedEventForm';
+import AddGroomingEventForm from './components/events/addEventComponents/addGroomingEventForm';
+
 
 class App extends React.Component {
 
@@ -45,8 +49,14 @@ class App extends React.Component {
                     <Route path="/addEvent">
                         <AddEvent pets={ this.state.pets }/>
                     </Route>
-                    <Route path="/about">
-                        <About />
+                    <Route path="/addVetEvent">
+                        <AddVetEventForm pets={ this.state.pets }/>
+                    </Route>
+                    <Route path="/addMedEvent">
+                        <AddMedEventForm pets={ this.state.pets }/>
+                    </Route>
+                    <Route path="/addGroomingEvent">
+                        <AddGroomingEventForm pets={ this.state.pets }/>
                     </Route>
                     <Route path="/petView">
                         <PetView />
@@ -54,6 +64,7 @@ class App extends React.Component {
                     <Route exact path="/">
                         <Home pets={ this.state.pets }/>
                     </Route>
+                    
                     <Route>
                         <Error />
                     </Route>

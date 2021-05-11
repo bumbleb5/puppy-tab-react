@@ -4,8 +4,8 @@ class AddPetSpeciesInput extends React.Component {
     render() {
         return (
             <div className="formField">
-                <label htmlFor="species" className="addPetFormLabel">Species</label>
-                <select id="species" name="species" className="selectDropDown">
+                <label htmlFor="petSpecies" className="addPetFormLabel">Species</label>
+                <select id="petSpecies" name="petSpecies" className="selectDropDown" onChange={ this.props.handleChange }>
                     <option value="null" defaultValue></option>
                     <option value="dog">Dog</option>
                     <option value="cat">Cat</option>

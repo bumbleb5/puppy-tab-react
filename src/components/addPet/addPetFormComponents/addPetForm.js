@@ -42,6 +42,7 @@ class AddPetForm extends React.Component {
     }
 
     // if there is no id assigned, assign an id, else just set state with name
+    // TODO move ID generation to back end 
     handlePetNameInput(e) {
         if (this.state.petID === '') {
             let randomPetID = uuidv4();

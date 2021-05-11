@@ -11,7 +11,6 @@ class Nav extends React.Component {
                     <Link className="Nav-tile" to="/">My Household</Link>
                     <Link className="Nav-tile" to="/addPet">Add Pet</Link>
                     <Link className="Nav-tile" to="/addEvent">Add Event</Link>
-                    <Link className="Nav-tile" to="/about">About</Link>
                 </div>
 
 

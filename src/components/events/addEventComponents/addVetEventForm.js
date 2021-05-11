@@ -9,7 +9,7 @@ function uuidv4() {
     });
 }
 
-class addVetEvent extends React.Component {
+class AddVetEventForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -33,6 +33,7 @@ class addVetEvent extends React.Component {
         console.log(this.state);
     }
 
+    // TODO move ID generation to back end 
     handlePetSelect(e) {
         if (this.state.eventID === '') {
             let randomID = uuidv4();
@@ -61,6 +62,7 @@ class addVetEvent extends React.Component {
         console.log(stringifiedEvent);
         alert('An event was submitted for ' + this.state.eventPet);
     }
+
     render() {
         return (
             <div>
@@ -68,7 +70,7 @@ class addVetEvent extends React.Component {
                 <form id="addVetEventForm" className="addEventForm" name="addVetEventForm" onSubmit={ this.handleSubmit }>
                     
                      {/* <EventPetSelect pets={ this.props.pets } value={ this.state.eventPet } onChange={ this.handleInputChange }/> */}
-                     <div className="formField">
+                    <div className="formField">
                         <label htmlFor="eventPet" className="addEventFormLabel">Select Pet</label>
                         <select id="eventPet" name="eventPet" className="selectPetDropDown" onChange={ this.handlePetSelect }>
                             <option value="null" defaultValue></option>
@@ -92,7 +94,7 @@ class addVetEvent extends React.Component {
                         <label className="addEventFormLabel" htmlFor="vetEventTotal">Total</label><br/>
                         <input type="text" id="vetEventTotal" className="addEventInput" name="vetEventTotal" value={ this.state.vetEventTotal } onChange={ this.handleInputChange }/>
                     </div>
-                    <div id="vetEventNotes">
+                    <div id="eventNotes">
                         <textarea className="vetEventNotes" name="vetEventNotes" value={ this.state.vetEventNotes } onChange={ this.handleInputChange }rows="6" cols="40">
                             Visit notes
                         </textarea>
@@ -104,4 +106,4 @@ class addVetEvent extends React.Component {
     }
 }
 
-export default addVetEvent;
+export default AddVetEventForm;

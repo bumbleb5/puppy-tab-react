@@ -62,9 +62,14 @@
     height: 60px;
 }
 
-#vetEventNotes {
+#eventNotes {
     grid-column-start: 1;
     grid-column-end: 2 span;
+}
+
+#inlineEventNotes {
+    grid-column-start: 2;
+    grid-column-end: 2;
 }
 
 .addEventForm .vetEventNotes {

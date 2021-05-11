@@ -1,12 +1,12 @@
 import React from 'react';
-import AddVetEvent from './addEventComponents/addVetEventForm';
+import AddVetEventForm from './addEventComponents/addVetEventForm';
 import './addEvent.css'
 
 class AddEvent extends React.Component {
     render() {
         return (
             <div>
-                <AddVetEvent pets={ this.props.pets } />
+                <AddVetEventForm pets={ this.props.pets } />
             </div>
         );
     }
