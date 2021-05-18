@@ -5,13 +5,13 @@ import { Dog, Cat, Pet } from './household/pets/allPets';
 function petProcessor (petObj) {
     // assigning raw data properties to new properties
     let newPet;
-    let name = petObj._name;
-    let species = petObj._species;
-    let sex = petObj._sex;
-    let birthMonth = petObj._birthMonth;
-    let birthYear = petObj._birthYear;
-    let imgSrc = petObj._imgSrc;
-    let breed = petObj._breed;
+    let name = petObj.name;
+    let species = petObj.species;
+    let sex = petObj.sex;
+    let birthMonth = petObj.birthMonth;
+    let birthYear = petObj.birthYear;
+    let imgSrc = petObj.imgSrc;
+    let breed = petObj.breed;
     // creating new pet objects
     if (species === 'dog') {
         newPet = new Dog(name, species, sex, birthMonth, birthYear, imgSrc, breed);
