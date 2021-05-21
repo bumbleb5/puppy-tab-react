@@ -1,15 +1,16 @@
 import React from 'react';
 import Household from './household/household.js';
 import petProcessor from './petProcessor';
+import petService from '../services/pet.service';
 // this is where i need to call API
 
 class Home extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         pets: []
-    //     };
-    // }
+    constructor(props) {
+        super(props);
+        this.state = {
+            pets: []
+        };
+    }
 
     // componentDidMount() {
     //     fetch('/pets')
@@ -26,10 +27,19 @@ class Home extends React.Component {
     //     });
     // }
 
+    componentDidMount() {
+        petService.fetchPets().then(pets => {
+            this.setState({
+                pets
+            });
+            console.log(this.state);
+        });
+    }
+
     render() {
         return (
             <div>
-                <Household pets={ this.props.pets }/*pets={ this.state.pets }*//>
+                <Household pets={ this.state.pets }/*pets={ this.state.pets }*//>
             </div>
         );
     }

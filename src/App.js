@@ -7,8 +7,10 @@ import AddPet from './components/addPet/addPet';
 import AddEvent from './components/events/addEvent';
 import About from './components/nav/about';
 import Error from './components/nav/error';
-import PetView from './components/household/petView/petView';
 import petProcessor from './components/petProcessor';
+import petService from './services/pet.service';
+
+import PetView from './components/household/petView/petView';
 import AddVetEventForm from './components/events/addEventComponents/addVetEventForm';
 import AddMedEventForm from './components/events/addEventComponents/addMedEventForm';
 import AddGroomingEventForm from './components/events/addEventComponents/addGroomingEventForm';
@@ -22,17 +24,11 @@ class App extends React.Component {
             pets: []
         };
     }
-
+    // TODO take out and give state to all child components
     componentDidMount() {
-        fetch('/pets')
-        .then(res => res.json())
-        .then(data => {
-            let petArr = data;
-            petArr = petArr.map(pet => {
-                return petProcessor(pet);
-            });
+        petService.fetchPets().then(pets => {
             this.setState({
-                pets: petArr
+                pets
             });
             console.log(this.state);
         });

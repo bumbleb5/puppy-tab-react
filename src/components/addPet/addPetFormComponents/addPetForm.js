@@ -44,27 +44,34 @@ class AddPetForm extends React.Component {
     // if there is no id assigned, assign an id, else just set state with name
     // TODO move ID generation to back end 
     handlePetNameInput(e) {
-        if (this.state.petID === '') {
-            let randomPetID = uuidv4();
-            this.setState({
-                petID: randomPetID,
-                addPetName: e.target.value
-            });
-        } else {
-            this.setState({
-                addPetName: e.target.value
-            });
-        }
-        
+        // if (this.state.petID === '') {
+        //     let randomPetID = uuidv4();
+        //     this.setState({
+        //         petID: randomPetID,
+        //         addPetName: e.target.value
+        //     });
+        // } else { }
+        this.setState({
+            addPetName: e.target.value
+        });
     }
 
-    handleSubmit(event) {
+    async handleSubmit(event) {
         event.preventDefault();
         //let petID = uuidv4();
         //this.setState({ petID: petID });
         const stringifiedPet = JSON.stringify(this.state);
-        localStorage.setItem(this.state.petID, stringifiedPet);
+        //localStorage.setItem(this.state.petID, stringifiedPet);
         console.log(stringifiedPet);
+        
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: stringifiedPet
+        };
+        const response = await fetch('/pets', requestOptions);
+        const data = await response.json();
+        // this.setState({ postId: data.id });
         alert('A profile was submitted for ' + this.state.addPetName);
     }
 
