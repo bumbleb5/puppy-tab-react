@@ -14,6 +14,8 @@ import PetView from './components/household/petView/petView';
 import AddVetEventForm from './components/events/addEventComponents/addVetEventForm';
 import AddMedEventForm from './components/events/addEventComponents/addMedEventForm';
 import AddGroomingEventForm from './components/events/addEventComponents/addGroomingEventForm';
+import EventList from './components/events/eventList/eventList';
+import EventDetails from './components/events/eventList/eventDetails';
 
 
 class App extends React.Component {
@@ -43,19 +45,22 @@ class App extends React.Component {
                         <AddPet />
                     </Route>
                     <Route path="/addEvent">
-                        <AddEvent pets={ this.state.pets }/>
+                        <AddEvent />
                     </Route>
                     <Route path="/addVetEvent">
-                        <AddVetEventForm pets={ this.state.pets }/>
+                        <AddVetEventForm />
                     </Route>
                     <Route path="/addMedEvent">
-                        <AddMedEventForm pets={ this.state.pets }/>
+                        <AddMedEventForm />
                     </Route>
                     <Route path="/addGroomingEvent">
-                        <AddGroomingEventForm pets={ this.state.pets }/>
+                        <AddGroomingEventForm />
                     </Route>
-                    <Route path="/petView">
-                        <PetView />
+                    <Route path="/petView/:petId" component={ PetView }>
+                    </Route>
+                    <Route path="/eventList/:petId" component={ EventList }>
+                    </Route>
+                    <Route path="/eventDetails/:eventId" component={ EventDetails }>
                     </Route>
                     <Route exact path="/">
                         <Home pets={ this.state.pets }/>

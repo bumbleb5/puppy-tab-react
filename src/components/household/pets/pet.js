@@ -1,11 +1,12 @@
 class Pet {
-    constructor(name, species, sex, birthMonth, birthYear, imgSrc) {
+    constructor(name, species, sex, birthMonth, birthYear, imgSrc, id) {
         this._name = name;
         this._species = species;
         this._sex = sex;
         this._birthMonth = birthMonth;
         this._birthYear = birthYear;
         this._imgSrc = imgSrc;
+        this.id = id;
     }
     get name() {
         return this._name;

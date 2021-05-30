@@ -11,17 +11,18 @@ function petProcessor (petObj) {
     let birthMonth = petObj.birthMonth;
     let birthYear = petObj.birthYear;
     let imgSrc = petObj.imgSrc;
+    let id = petObj.id;
     if (!imgSrc) {
         imgSrc = 'media/cat.png';
     }
     let breed = petObj.breed;
     // creating new pet objects
     if (species === 'dog') {
-        newPet = new Dog(name, species, sex, birthMonth, birthYear, imgSrc, breed);
+        newPet = new Dog(name, species, sex, birthMonth, birthYear, imgSrc, id, breed);
     } else if (species === 'cat') {
-        newPet = new Cat(name, species, sex, birthMonth, birthYear, imgSrc, breed);
+        newPet = new Cat(name, species, sex, birthMonth, birthYear, imgSrc, id, breed);
     } else {
-        newPet = new Pet(name, species, sex, birthMonth, birthYear, imgSrc);
+        newPet = new Pet(name, species, sex, birthMonth, birthYear, imgSrc, id);
     }
     return newPet;
 }   

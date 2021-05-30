@@ -12,6 +12,15 @@ const fetchPets = async () => {
     });
 }
 
+const fetchPet = async (petId) => {
+    return await fetch('/pets/' + petId)
+    .then(res => res.json())
+    .then(data => {
+        return petProcessor(data);
+    });
+}
+
 export default {
-    fetchPets
+    fetchPets,
+    fetchPet
 };

@@ -2,14 +2,13 @@ import React from 'react';
 import './petCards.css';
 import { Link } from 'react-router-dom';
 
-// image source is not working correctly
-
 class PetCards extends React.Component {
+
     render() {
         return (
             <div className="PetCards">
                     <div className="PetPictureFrame">
-                        <Link className="petPictureLink" to="/petView"><img className="PetPicture" src={ this.props.pet.imgSrc } alt={ this.props.pet.name }></img></Link>
+                        <Link className="petPictureLink" to={"/eventList/" + this.props.petId} pet={ this.props.pet }><img className="PetPicture" src={ this.props.pet.imgSrc } alt={ this.props.pet.name }></img></Link>
                     </div>
                 <table>
                     <caption>{ this.props.pet.name }</caption>

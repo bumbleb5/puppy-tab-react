@@ -15,10 +15,10 @@ class AddVetEventForm extends React.Component {
         this.state = {
             eventType: 'veterinary',
             eventPet: '',
-            vetEventClinic: '',
-            vetEventDate: '',
-            vetEventTotal: '',
-            vetEventNotes: '',
+            providerName: '',
+            eventDate: '',
+            totalPrice: '',
+            eventNotes: '',
             eventID: ''
         };
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -34,32 +34,47 @@ class AddVetEventForm extends React.Component {
     }
 
     // TODO move ID generation to back end 
-    handlePetSelect(e) {
-        if (this.state.eventID === '') {
-            let randomID = uuidv4();
-            this.setState({
-                eventID: randomID,
-                eventPet: e.target.value
-            });
-            console.log(this.state);
-        } else {
-            this.setState({
-                eventPet: e.target.value
-            });
+    async handlePetSelect(e) {
+        const requestOptions = {
+            method: 'GET',
+            headers: {}
         }
+        await fetch('/pets', )
+        this.setState({
+            eventPet: e.target.value
+        });
     }
     
-    handleSubmit(event) {
+    // handleSubmit(event) {
+    //     event.preventDefault();
+    //     //let randomEventID = uuidv4();
+    //     //console.log(randomEventID);
+    //     //this.setState({ eventID: randomEventID });
+    //     //console.log(this.state);
+    //     const stringifiedEvent = JSON.stringify(this.state);
+    //     //console.log(eventID);
+    //     //console.log(uuidv4());
+    //     localStorage.setItem(this.state.eventID, stringifiedEvent);
+    //     console.log(stringifiedEvent);
+    //     alert('An event was submitted for ' + this.state.eventPet);
+    // }
+
+    async handleSubmit(event) {
         event.preventDefault();
-        //let randomEventID = uuidv4();
-        //console.log(randomEventID);
-        //this.setState({ eventID: randomEventID });
-        //console.log(this.state);
+        //let petID = uuidv4();
+        //this.setState({ petID: petID });
         const stringifiedEvent = JSON.stringify(this.state);
-        //console.log(eventID);
-        //console.log(uuidv4());
-        localStorage.setItem(this.state.eventID, stringifiedEvent);
+        //localStorage.setItem(this.state.petID, stringifiedPet);
         console.log(stringifiedEvent);
+        
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: stringifiedEvent
+        };
+        const response = await fetch('/events', requestOptions);
+        const data = await response.json();
+        // this.setState({ postId: data.id });
         alert('An event was submitted for ' + this.state.eventPet);
     }
 
@@ -83,19 +98,19 @@ class AddVetEventForm extends React.Component {
                     </div>
                     
                     <div className="formField">
-                        <label className="addEventFormLabel" htmlFor="vetEventClinic">Veterinary Clinic</label><br/>
-                        <input type="text" id="vetEventClinic" className="addEventInput" name="vetEventClinic" value={ this.state.vetEventClinic } onChange={ this.handleInputChange }/>
+                        <label className="addEventFormLabel" htmlFor="providerName">Veterinary Clinic</label><br/>
+                        <input type="text" id="vetEventClinic" className="addEventInput" name="providerName" value={ this.state.providerName } onChange={ this.handleInputChange }/>
                     </div>
                     <div className="formField">
-                        <label className="addEventFormLabel" htmlFor="vetEventDate">Date of Visit</label><br/>
-                        <input type="date" id="vetEventDate" className="addEventInput" name="vetEventDate" value={ this.state.vetEventDate } onChange={ this.handleInputChange } pattern="\d{4}-\d{2}-\d{2}"/>
+                        <label className="addEventFormLabel" htmlFor="eventDate">Date of Visit</label><br/>
+                        <input type="date" id="vetEventDate" className="addEventInput" name="eventDate" value={ this.state.eventDate } onChange={ this.handleInputChange } pattern="\d{4}-\d{2}-\d{2}"/>
                     </div>
                     <div className="formField">
-                        <label className="addEventFormLabel" htmlFor="vetEventTotal">Total</label><br/>
-                        <input type="text" id="vetEventTotal" className="addEventInput" name="vetEventTotal" value={ this.state.vetEventTotal } onChange={ this.handleInputChange }/>
+                        <label className="addEventFormLabel" htmlFor="totalPrice">Total</label><br/>
+                        <input type="text" id="vetEventTotal" className="addEventInput" name="totalPrice" value={ this.state.totalPrice } onChange={ this.handleInputChange }/>
                     </div>
                     <div id="eventNotes">
-                        <textarea className="vetEventNotes" name="vetEventNotes" value={ this.state.vetEventNotes } onChange={ this.handleInputChange }rows="6" cols="40">
+                        <textarea className="vetEventNotes" name="eventNotes" value={ this.state.eventNotes } onChange={ this.handleInputChange }rows="6" cols="40">
                             Visit notes
                         </textarea>
                     </div>
