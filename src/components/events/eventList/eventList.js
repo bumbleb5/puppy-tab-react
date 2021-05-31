@@ -2,6 +2,7 @@ import React from 'react';
 import eventService from '../../../services/event.service';
 import petService from '../../../services/pet.service';
 import { Link } from 'react-router-dom';
+import './eventDetails.css';
 
 class EventList extends React.Component {
     
@@ -39,28 +40,28 @@ class EventList extends React.Component {
         return (
             <div>
                 <h1>{ this.state.pet?.name || 'Pet' }'s Event History</h1>
-                <table>
-                    <tr>
-                        <th>Event Type</th>
-                        <th>Event Date</th>
-                        <th>Provider </th>
-                    </tr>
-                    <tr>
-                        {
-                        this.state.events.map(event => {
-                            return (
-                                <div>
-                                    <tbody>
+                <table id="eventList">
+                    <tbody>
+                        <tr>
+                            <th>Event Type</th>
+                            <th>Event Date</th>
+                            <th>Provider </th>
+                        </tr>
+                            {
+                            this.state.events.map(event => {
+                                return (
+                                
+                                    <tr key={event.eventId}>
                                         <td>{ event.eventType }</td>
                                         <td>{ event.eventDate }</td>
                                         <td>{ event.providerName }</td>
-                                        <Link className="eventDetailsLink" to={"/eventDetails/" + event.eventId} key={event.eventId} ><p>More Info</p></Link>
-                                    </tbody>
-                                </div>
-                            );
-                        })
-                        }
-                    </tr>
+                                        <td><Link className="eventDetailsLink" to={"/eventDetails/" + event.eventId} key={event.eventId} ><p>More Info</p></Link></td>
+                                    </tr>
+                                    
+                                );
+                            })
+                            }
+                    </tbody>
                 </table>
             </div>
             

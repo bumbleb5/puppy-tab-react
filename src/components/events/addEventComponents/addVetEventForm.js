@@ -1,6 +1,7 @@
 import React from 'react';
 //import EventPetSelect from '../eventInputComponents/eventPetSelect';
 import EventSubmitButton from '../eventInputComponents/eventSubmitButton';
+import petService from '../../../services/pet.service';
 
 function uuidv4() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -14,12 +15,11 @@ class AddVetEventForm extends React.Component {
         super(props);
         this.state = {
             eventType: 'veterinary',
-            eventPet: '',
+            petId: '',
             providerName: '',
             eventDate: '',
             totalPrice: '',
             eventNotes: '',
-            eventID: ''
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,13 +35,8 @@ class AddVetEventForm extends React.Component {
 
     // TODO move ID generation to back end 
     async handlePetSelect(e) {
-        const requestOptions = {
-            method: 'GET',
-            headers: {}
-        }
-        await fetch('/pets', )
         this.setState({
-            eventPet: e.target.value
+            petId: e.target.value,
         });
     }
     
@@ -74,8 +69,6 @@ class AddVetEventForm extends React.Component {
         };
         const response = await fetch('/events', requestOptions);
         const data = await response.json();
-        // this.setState({ postId: data.id });
-        alert('An event was submitted for ' + this.state.eventPet);
     }
 
     render() {
@@ -91,7 +84,7 @@ class AddVetEventForm extends React.Component {
                             <option value="null" defaultValue></option>
                         {
                             this.props.pets.map(pet => {
-                            return <option pet={ pet } value={ pet.name } key={ pet.name }>{ pet.name }</option>
+                            return <option pet={ pet } value={ pet.id } key={ pet.name }>{ pet.name }</option>
                         })
                         }
                         </select>

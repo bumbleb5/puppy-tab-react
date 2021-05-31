@@ -20,6 +20,7 @@ const fetchPet = async (petId) => {
     });
 }
 
+
 export default {
     fetchPets,
     fetchPet

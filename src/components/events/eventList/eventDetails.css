@@ -1,0 +1,19 @@
+#eventDetails {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-evenly;
+    align-content: space-around;
+    align-items: stretch;
+    /* background-color: #FAFAFA;
+    border: 2px solid #011936;
+    border-radius: 25px; */
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 10px;
+    height: 85vh;
+    width: 100%;
+}
+
+#eventList {
+    max-width: 100%;
+}

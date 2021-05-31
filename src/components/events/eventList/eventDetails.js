@@ -1,6 +1,7 @@
 import React from 'react';
 import eventService from '../../../services/event.service';
 import petService from '../../../services/pet.service';
+import './eventDetails.css';
 
 class EventDetails extends React.Component {
     constructor(props) {
@@ -39,8 +40,8 @@ class EventDetails extends React.Component {
         }
         return (
             <div>
-                <h1>{ this.state.pet.name }s { this.state.event.eventType } visit on { this.state.event.eventDate }</h1>
-                <table>
+                <h1>{ this.state.pet.name }s { this.state.event.eventType }'s visit on { this.state.event.eventDate }</h1>
+                <table id="eventDetails">
                     <tbody>
                         <tr>
                             <td>{ this.state.event.providerName }</td>
