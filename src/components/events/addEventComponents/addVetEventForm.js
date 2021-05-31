@@ -69,6 +69,8 @@ class AddVetEventForm extends React.Component {
         };
         const response = await fetch('/events', requestOptions);
         const data = await response.json();
+        alert('An event was submitted');
+        window.location.reload();
     }
 
     render() {

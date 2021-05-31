@@ -73,6 +73,7 @@ class AddPetForm extends React.Component {
         const data = await response.json();
         // this.setState({ postId: data.id });
         alert('A profile was submitted for ' + this.state.addPetName);
+        window.location.reload();
     }
 
     render() {

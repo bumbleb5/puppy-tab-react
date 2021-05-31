@@ -1,19 +1,49 @@
-#eventDetails {
-    display: inline-grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: space-evenly;
-    align-content: space-around;
-    align-items: stretch;
-    /* background-color: #FAFAFA;
-    border: 2px solid #011936;
-    border-radius: 25px; */
-    padding: 10px;
-    box-sizing: border-box;
-    margin: 10px;
-    height: 85vh;
-    width: 100%;
+.eventHeader {
+    font-size: 40px;
+    padding: 15px 0 15px 0;
 }
 
-#eventList {
+.eventListTable {
+    border-spacing: 0 10px;
+    font-size: 30px;
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #011936;
+    padding: 10px;
+    width: 75%;
     max-width: 100%;
+    margin: 0 auto;
+}
+
+.eventListTable tr {
+    background-color: #FAFAFA;
+    height: 40px;
+}
+
+.eventDetailsLink {
+    background-color: #FAFAFA;
+    color: #011936;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.eventSummary {
+    max-width: 65%;
+    width: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    justify-items: center;
+    margin: 0 auto;
+}
+
+.eventSummary p {
+    font-size: 25px;
+    padding: 7px;
+    justify-self: center;
+    padding: 15px 10px;
+}
+
+.ownerNotes {
+    grid-column: 1 / span 2;
+    align-self: center;
 }

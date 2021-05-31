@@ -39,10 +39,10 @@ class EventList extends React.Component {
         }
         return (
             <div>
-                <h1>{ this.state.pet?.name || 'Pet' }'s Event History</h1>
-                <table id="eventList">
+                <h1 className="eventHeader">{ this.state.pet?.name || 'Pet' }'s Event History</h1>
+                <table className="eventListTable">
                     <tbody>
-                        <tr>
+                        <tr className="tableHeader">
                             <th>Event Type</th>
                             <th>Event Date</th>
                             <th>Provider </th>

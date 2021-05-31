@@ -40,18 +40,12 @@ class EventDetails extends React.Component {
         }
         return (
             <div>
-                <h1>{ this.state.pet.name }s { this.state.event.eventType }'s visit on { this.state.event.eventDate }</h1>
-                <table id="eventDetails">
-                    <tbody>
-                        <tr>
-                            <td>{ this.state.event.providerName }</td>
-                            <td>{ this.state.event.totalPrice }</td>
-                        </tr>
-                        <tr>
-                            <td>{ this.state.event.eventNotes }</td>
-                        </tr>
-                        </tbody>
-                </table>
+                <h1 className="eventHeader">{ this.state.pet.name }'s { this.state.event.eventType } visit on { this.state.event.eventDate }</h1>
+                <div className="eventSummary">
+                    <p className="eventProvider">Provider: {this.state.event.providerName}</p>
+                    <p className="eventTotal">Total: ${this.state.event.totalPrice}</p>
+                    <p className="ownerNotes">Owner Notes: {this.state.event.eventNotes}</p>
+                </div>
             </div>
             
         );
