@@ -50,10 +50,12 @@ class EventList extends React.Component {
                         this.state.events.map(event => {
                             return (
                                 <div>
-                                    <td>{ event.eventType }</td>
-                                    <td>{ event.eventDate }</td>
-                                    <td>{ event.providerName }</td>
-                                    <Link className="eventDetailsLink" to={"/eventDetails/" + event.eventId}><p>More Info</p></Link>
+                                    <tbody>
+                                        <td>{ event.eventType }</td>
+                                        <td>{ event.eventDate }</td>
+                                        <td>{ event.providerName }</td>
+                                        <Link className="eventDetailsLink" to={"/eventDetails/" + event.eventId} key={event.eventId} ><p>More Info</p></Link>
+                                    </tbody>
                                 </div>
                             );
                         })

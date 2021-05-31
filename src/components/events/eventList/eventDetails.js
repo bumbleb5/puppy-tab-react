@@ -13,10 +13,10 @@ class EventDetails extends React.Component {
 
     // something is wrong with what this is fetching - fetching pets????
     componentDidMount() {
-        // getting route parameters
+        // getting URL parameters with deconstructed assignment
         const {match:{params}}=this.props;
         // fetch specific event
-        eventService.fetchEvents(params.eventId).then(event => {
+        eventService.fetchEvent(params.eventId).then(event => {
             this.setState({
                 event
             });

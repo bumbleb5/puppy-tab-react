@@ -9,10 +9,16 @@ const fetchEvents = async (petId) => {
         });
         return eventArr;
     });
-}
+};
+
+const fetchEvent = async (eventId) => {
+    return await fetch(`/events/${eventId}`)
+    .then(res => res.json());
+};
 
 export default {
-    fetchEvents
+    fetchEvents,
+    fetchEvent
 };
 
 
