@@ -76,7 +76,7 @@ class AddVetEventForm extends React.Component {
     render() {
         return (
             <div>
-                <h1 className="addEventFormTitle">Add Vet Event</h1>
+                {/* <h1 className="addEventFormTitle">Add Vet Event</h1> */}
                 <form id="addVetEventForm" className="addEventForm" name="addVetEventForm" onSubmit={ this.handleSubmit }>
                     
                      {/* <EventPetSelect pets={ this.props.pets } value={ this.state.eventPet } onChange={ this.handleInputChange }/> */}
