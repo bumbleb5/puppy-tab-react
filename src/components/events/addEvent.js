@@ -1,8 +1,12 @@
 import React from 'react';
 import petService from '../../services/pet.service';
 import './addEvent.css'
+import ConditionalInput from './eventInputComponents/conditionalInput';
 
-
+// display label for user
+let conditionalInput;
+// htmlFor value
+let conditionalValue;
 
 class AddEvent extends React.Component {
     constructor(props) {
@@ -20,6 +24,7 @@ class AddEvent extends React.Component {
         this.handlePetSelect = this.handlePetSelect.bind(this);
         this.handleEventSelect = this.handleEventSelect.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleEventTypeChange = this.handleEventTypeChange.bind(this);
     }
 
     // when this component renders, a list of pets will be recieved from the DB, passing into child forms to choose
@@ -55,7 +60,6 @@ class AddEvent extends React.Component {
         });
         console.log(this.state);
     }
-    // handle form render
     // hanel form submission
     async handleSubmit(event) {
         event.preventDefault();
@@ -82,7 +86,26 @@ class AddEvent extends React.Component {
         window.location.reload();
     }
 
+    handleEventTypeChange(e) {
+        const eventType = e.target.value;
+        this.setState({
+            eventType: e.target.value
+        });
+
+        if (eventType === '') {
+            conditionalInput = '';
+            conditionalValue = '';
+        } else if (eventType === 'veterinary' || eventType === 'grooming') {
+            conditionalInput = 'Provider';
+            conditionalValue = 'providerName';
+        } else if (eventType === 'medication') {
+            conditionalInput = 'Medication';
+            conditionalValue = 'medication';
+        }
+    }
+
     render() {
+
         return (
             <div id="addEventForm">
 
@@ -108,7 +131,7 @@ class AddEvent extends React.Component {
                     <div id="eventTypeSelect">
                         <label htmlFor="eventType" className="addEventFormLabel">Event Type</label>
 
-                        <select id="eventType" className="addEventSelect" value={ this.state.eventType } onChange={ this.handleEventSelect }>
+                        <select id="eventType" className="addEventSelect" value={ this.state.eventType } onChange={ this.handleEventTypeChange }>
                             <option value="veterinary">Veterinary</option>
                             <option value="grooming">Grooming</option>
                             <option value="medication">Medication</option>
@@ -120,14 +143,19 @@ class AddEvent extends React.Component {
                 <div className="formRenderDiv">
                     {/* TODO switch (event type) this only renders when the event is selected */}
 
+
                     <div className="addEventformField">
                         <label className="addEventFormLabel" htmlFor="eventDate">Event Date</label><br/>
                         <input type="date" id="eventDate" className="addEventInput" name="eventDate" value={ this.state.eventDate } onChange={ this.handleInputChange } pattern="\d{4}-\d{2}-\d{2}"/>
                     </div>
 
-                    <div className="formField">
-                        <label className="addEventFormLabel" htmlFor="providerName">Veterinary Clinic</label><br/>
-                        <input type="text" id="vetEventClinic" className="addEventInput" name="providerName" value={ this.state.providerName } onChange={ this.handleInputChange }/>
+                    {/* <div className="formField">
+                        <label className="addEventFormLabel" htmlFor={ conditionalValue }>Veterinary Clinic</label><br/>
+                        <input type="text" id="vetEventClinic" className="addEventInput" name={ conditionalValue } value={ this.state.providerName } onChange={ this.handleInputChange }/>
+                    </div> */}
+
+                    <div>
+                        <ConditionalInput value={ this.state[conditionalValue] } input={ conditionalInput } handleChange={ this.handleInputChange }/>
                     </div>
 
                 </div>
