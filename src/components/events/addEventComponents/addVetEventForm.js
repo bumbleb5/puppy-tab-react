@@ -21,17 +21,17 @@ class AddVetEventForm extends React.Component {
             totalPrice: '',
             eventNotes: '',
         };
-        this.handleInputChange = this.handleInputChange.bind(this);
+        // this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handlePetSelect = this.handlePetSelect.bind(this);
     }
 
-    handleInputChange(e) {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
-        console.log(this.state);
-    }
+    // handleInputChange(e) {
+    //     this.setState({
+    //         [e.target.name]: e.target.value
+    //     });
+    //     console.log(this.state);
+    // }
 
     // TODO move ID generation to back end 
     async handlePetSelect(e) {
@@ -82,7 +82,7 @@ class AddVetEventForm extends React.Component {
                      {/* <EventPetSelect pets={ this.props.pets } value={ this.state.eventPet } onChange={ this.handleInputChange }/> */}
                     <div className="formField">
                         <label htmlFor="eventPet" className="addEventFormLabel">Select Pet</label>
-                        <select id="eventPet" name="eventPet" className="selectPetDropDown" onChange={ this.handlePetSelect }>
+                        <select id="eventPet" name="eventPet" className="selectPetDropDown" onChange={ this.props.handleInputChange }>
                             <option value="null" defaultValue></option>
                         {
                             this.props.pets.map(pet => {
@@ -94,18 +94,18 @@ class AddVetEventForm extends React.Component {
                     
                     <div className="formField">
                         <label className="addEventFormLabel" htmlFor="providerName">Veterinary Clinic</label><br/>
-                        <input type="text" id="vetEventClinic" className="addEventInput" name="providerName" value={ this.state.providerName } onChange={ this.handleInputChange }/>
+                        <input type="text" id="vetEventClinic" className="addEventInput" name="providerName" value={ this.state.providerName } onChange={ this.props.handleInputChange }/>
                     </div>
                     <div className="formField">
                         <label className="addEventFormLabel" htmlFor="eventDate">Date of Visit</label><br/>
-                        <input type="date" id="vetEventDate" className="addEventInput" name="eventDate" value={ this.state.eventDate } onChange={ this.handleInputChange } pattern="\d{4}-\d{2}-\d{2}"/>
+                        <input type="date" id="vetEventDate" className="addEventInput" name="eventDate" value={ this.state.eventDate } onChange={ this.props.handleInputChange } pattern="\d{4}-\d{2}-\d{2}"/>
                     </div>
                     <div className="formField">
                         <label className="addEventFormLabel" htmlFor="totalPrice">Total</label><br/>
-                        <input type="text" id="vetEventTotal" className="addEventInput" name="totalPrice" value={ this.state.totalPrice } onChange={ this.handleInputChange }/>
+                        <input type="text" id="vetEventTotal" className="addEventInput" name="totalPrice" value={ this.state.totalPrice } onChange={ this.props.handleInputChange }/>
                     </div>
                     <div id="eventNotes">
-                        <textarea className="vetEventNotes" name="eventNotes" value={ this.state.eventNotes } onChange={ this.handleInputChange }rows="6" cols="40">
+                        <textarea className="vetEventNotes" name="eventNotes" value={ this.state.eventNotes } onChange={ this.props.handleInputChange }rows="6" cols="40">
                             Visit notes
                         </textarea>
                     </div>
