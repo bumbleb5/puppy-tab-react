@@ -2,18 +2,22 @@ import React from 'react';
 import petService from '../../services/pet.service';
 import './addEvent.css'
 import ConditionalInput from './eventInputComponents/conditionalInput';
+import ProviderInput from './eventInputComponents/providerInput';
+import MedicationInput from './eventInputComponents/medicationInput';
 
 // display label for user
 let conditionalInput;
 // htmlFor value
 let conditionalValue;
 
+let eventTypeInput;
+
 class AddEvent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             pets: [],
-            eventPet: '',
+            // eventPet: '',
             eventPetId: '',
             eventType: '',
             eventDate: '',
@@ -25,6 +29,7 @@ class AddEvent extends React.Component {
         this.handleEventSelect = this.handleEventSelect.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleEventTypeChange = this.handleEventTypeChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     // when this component renders, a list of pets will be recieved from the DB, passing into child forms to choose
@@ -37,12 +42,24 @@ class AddEvent extends React.Component {
         });
     }
 
+    // function to find pet by name and return id, don't need anymore
+    // getPetId(targetPet) {
+    //     const petsArr = this.state.pets;
+    //     const foundPet = petsArr.find(pet => {
+    //         return pet._name === targetPet;
+    //     }); 
+    //     if (foundPet) {
+    //         return foundPet.id;
+    //     } else {
+    //         return null;
+    //     }
+    // }
+
     // handle pet select -> eventPetId
     handlePetSelect(e) {
-        const pet = e.target.value;
+        const petId = e.target.value;
         this.setState({
-            eventPet: pet,
-            eventPetId: pet.id
+            eventPetId: petId,
         });
         console.log(this.state);
     }
@@ -55,6 +72,15 @@ class AddEvent extends React.Component {
     }
 
     handleInputChange(e) {
+        // if (e && e.fieldName) {
+        //     this.setState({
+        //         [e.fieldName]: e.fieldValue
+        //     });
+        // } else {
+        //     this.setState({
+        //         [e.target.name]: e.target.value
+        //     });
+        // }
         this.setState({
             [e.target.name]: e.target.value
         });
@@ -65,12 +91,12 @@ class AddEvent extends React.Component {
         event.preventDefault();
         // getting certain info out of state
         const eventDetails = {
-            petId: [this.state.eventPetId],
-            eventType: [this.state.eventType],
-            eventDate: [this.state.eventDate],
-            eventNotes: [this.state.eventNotes],
-            providerName: [this.state.providerName],
-            medication: [this.state.medication]
+            petId: this.state.eventPetId,
+            eventType: this.state.eventType,
+            eventDate: this.state.eventDate,
+            eventNotes: this.state.eventNotes,
+            providerName: this.state.providerName,
+            medication: this.state.medication
         };
         const stringifiedEvent = JSON.stringify(eventDetails);
         console.log(stringifiedEvent);
@@ -89,7 +115,7 @@ class AddEvent extends React.Component {
     handleEventTypeChange(e) {
         const eventType = e.target.value;
         this.setState({
-            eventType: e.target.value
+            eventType: eventType
         });
 
         if (eventType === '') {
@@ -102,6 +128,12 @@ class AddEvent extends React.Component {
             conditionalInput = 'Medication';
             conditionalValue = 'medication';
         }
+
+        // if (e.target.value === 'veterinary' || e.target.value === 'grooming') {
+        //     eventTypeInput = <ProviderInput value={ this.state.providerName } onChange={ this.handleInputChange }/>
+        // } else if (e.target.value === 'medication') {
+        //     eventTypeInput = <MedicationInput value={ this.state.medication } onChange={ this.handleInputChange }/>
+        // }
     }
 
     render() {
@@ -122,7 +154,7 @@ class AddEvent extends React.Component {
                             <option value="null">Select Pet</option>
                             {
                                 this.state.pets.map(pet => {
-                                return <option pet={ pet } value={ pet.name } key={ pet.id }>{ pet.name }</option>
+                                return <option value={ pet.id } key={ pet.id }>{ pet.name }</option>
                             })
                             }
                         </select>
@@ -132,6 +164,7 @@ class AddEvent extends React.Component {
                         <label htmlFor="eventType" className="addEventFormLabel">Event Type</label>
 
                         <select id="eventType" className="addEventSelect" value={ this.state.eventType } onChange={ this.handleEventTypeChange }>
+                            <option value=""></option>
                             <option value="veterinary">Veterinary</option>
                             <option value="grooming">Grooming</option>
                             <option value="medication">Medication</option>
@@ -141,22 +174,24 @@ class AddEvent extends React.Component {
                 </div>
 
                 <div className="formRenderDiv">
-                    {/* TODO switch (event type) this only renders when the event is selected */}
-
 
                     <div className="addEventformField">
                         <label className="addEventFormLabel" htmlFor="eventDate">Event Date</label><br/>
                         <input type="date" id="eventDate" className="addEventInput" name="eventDate" value={ this.state.eventDate } onChange={ this.handleInputChange } pattern="\d{4}-\d{2}-\d{2}"/>
                     </div>
 
-                    {/* <div className="formField">
-                        <label className="addEventFormLabel" htmlFor={ conditionalValue }>Veterinary Clinic</label><br/>
-                        <input type="text" id="vetEventClinic" className="addEventInput" name={ conditionalValue } value={ this.state.providerName } onChange={ this.handleInputChange }/>
+                    <div className="formField">
+                        <label className="addEventFormLabel" htmlFor={ conditionalValue }>{ conditionalInput }</label><br/>
+                        <input type="text" id="vetEventClinic" className="addEventInput" name={ conditionalValue } value={ this.state[conditionalValue] } onChange={ this.handleInputChange }/>
+                    </div>
+
+                    {/* if/else statement maybe instead of ConditionalInput */}
+
+                    {/* <div>
+                        <ConditionalInput value={ conditionalValue } input={ conditionalInput } onChange={ this.handleInputChange }/>
                     </div> */}
 
-                    <div>
-                        <ConditionalInput value={ this.state[conditionalValue] } input={ conditionalInput } handleChange={ this.handleInputChange }/>
-                    </div>
+                    {/* {eventTypeInput} */}
 
                 </div>
                 
