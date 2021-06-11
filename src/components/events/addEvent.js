@@ -1,9 +1,9 @@
 import React from 'react';
 import petService from '../../services/pet.service';
 import './addEvent.css'
-import ConditionalInput from './eventInputComponents/conditionalInput';
-import ProviderInput from './eventInputComponents/providerInput';
-import MedicationInput from './eventInputComponents/medicationInput';
+// import ConditionalInput from './eventInputComponents/conditionalInput';
+// import ProviderInput from './eventInputComponents/providerInput';
+// import MedicationInput from './eventInputComponents/medicationInput';
 
 // display label for user
 let conditionalInput;
@@ -108,7 +108,7 @@ class AddEvent extends React.Component {
         };
         const response = await fetch('/events', requestOptions);
         const data = await response.json();
-        alert('An event was submitted for ' + this.state.eventPet);
+        alert('A '+ this.state.eventType + ' event was submitted');
         window.location.reload();
     }
 
@@ -196,8 +196,8 @@ class AddEvent extends React.Component {
                 </div>
                 
                 <div id="eventNotes">
-                    <textarea className="addEventNotes" name="eventNotes" value={ this.state.eventNotes } onChange={ this.handleInputChange }rows="5" cols="100">
-                        Notes
+                    <textarea className="addEventNotes" name="eventNotes" value={ this.state.eventNotes } onChange={ this.handleInputChange } rows="5" cols="100" defaultValue="Owner Notes">
+                        
                     </textarea>
                 </div>
 
