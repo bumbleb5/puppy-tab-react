@@ -196,7 +196,7 @@ class AddEvent extends React.Component {
                 </div>
                 
                 <div id="eventNotes">
-                    <textarea className="addEventNotes" name="eventNotes" value={ this.state.eventNotes } onChange={ this.handleInputChange } rows="5" cols="100" defaultValue="Owner Notes">
+                    <textarea className="addEventNotes" name="eventNotes" value={ this.state.eventNotes } onChange={ this.handleInputChange } rows="5" cols="100">
                         
                     </textarea>
                 </div>

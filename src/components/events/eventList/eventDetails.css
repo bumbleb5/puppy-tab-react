@@ -9,7 +9,7 @@
     font-family: 'Roboto Condensed', sans-serif;
     color: #011936;
     padding: 10px;
-    width: 75%;
+    width: 95%;
     max-width: 100%;
     margin: 0 auto;
 }
@@ -46,4 +46,67 @@
 .ownerNotes {
     grid-column: 1 / span 2;
     align-self: center;
+}
+
+.eventListDiv {
+    grid-row: 1 / 3;
+}
+
+#eventListPetBrief {
+    grid-row: 1 / 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    border: 2px solid #011936;
+    border-radius: 25px;
+    background-color: #FAFAFA;
+    align-items: center;
+    height: 250px;
+    max-width: 330px;
+    position: relative;
+    top: 20px;
+}
+
+.petBriefName {
+    font-size: 35px;
+    grid-column: 1 / 2;
+    justify-self: end;
+    padding: 0 10px;
+}
+
+.petBriefImgDiv {
+    grid-column: 2 / 3;
+    justify-self: start;
+    padding: 0 10px;
+
+}
+
+.petBriefBreed {
+    font-size: 25px;
+    grid-column: 1 / 2;
+    justify-self: end;
+    align-self: start;
+    padding: 0 15px;
+
+}
+
+.petBriefAge {
+    font-size: 25px;
+    grid-column: 2 / 3;
+    justify-self: start;
+    align-self: start;
+    padding: 0 15px;
+
+}
+
+.petBriefImg {
+    max-height: 75px;
+}
+
+#eventListContianer {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    max-width: 80%;
+    margin: 20px auto;
 }
