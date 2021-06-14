@@ -1,3 +1,4 @@
+/* Styles for eventList.js */
 .eventHeader {
     font-size: 40px;
     padding: 15px 0 15px 0;
@@ -26,26 +27,14 @@
     text-align: center;
 }
 
-.eventSummary {
-    max-width: 65%;
-    width: auto;
+/* Styles for eventDetails.js */
+
+#eventListContianer {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 10px;
-    justify-items: center;
-    margin: 0 auto;
-}
-
-.eventSummary p {
-    font-size: 25px;
-    padding: 7px;
-    justify-self: center;
-    padding: 15px 10px;
-}
-
-.ownerNotes {
-    grid-column: 1 / span 2;
-    align-self: center;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    max-width: 80%;
+    margin: 20px auto;
 }
 
 .eventListDiv {
@@ -103,10 +92,56 @@
     max-height: 75px;
 }
 
-#eventListContianer {
+/* Styles for children components medicationDetails.js & veterinaryGroomingDetails.js */
+
+.eventDetails {
+    max-width: 65%;
+    width: auto;
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    column-gap: 10px;
+    justify-items: center;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.eventSummaryContainer {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.eventSummaryContainer p {
+    font-size: 25px;
+    padding: 7px;
+    justify-self: center;
+    padding: 15px 10px;
+}
+
+.ownerNotes {
+    grid-row: 3 / 4;
+    align-self: center;
+}
+
+#eventDetailsContainer, .eventDetailsPageLink {
+    font-size: 25px;
+    color: #011936;
+}
+
+#eventDetailsContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr 1fr;
     max-width: 80%;
-    margin: 20px auto;
+    height: 50vh;
+    margin: 0 auto;
+    align-items: center;
+}
+
+#eventDetailsContainer, .linkContainer {
+    grid-row: 2 / 3;
+}
+
+.eventDetailsComponent {
+    grid-row: 1 / 2;
 }

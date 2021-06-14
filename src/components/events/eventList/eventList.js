@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 import './eventDetails.css';
 
 const sortEventArr = (eventArr) => {
-    return eventArr.sort((a, b) => {
+    eventArr = eventArr.sort((a, b) => {
         return new Date(a.eventDate) - new Date(b.eventDate);
     });
+    return eventArr.reverse();
 }
 
 class EventList extends React.Component {
@@ -87,7 +88,7 @@ class EventList extends React.Component {
                                             <tr key={event.eventId}>
                                                 <td>{ event.eventType }</td>
                                                 <td>{ event.eventDate }</td>
-                                                <td>{ event.providerName }</td>
+                                                <td>{ event.providerName || event.medication }</td>
                                                 <td><Link className="eventDetailsLink" to={"/eventDetails/" + event.eventId} key={event.eventId} ><p>More Info</p></Link></td>
                                             </tr>
                                             
