@@ -23,7 +23,7 @@ function petProcessor (petObj) {
     } else if (species === 'cat') {
         newPet = new Cat(name, species, sex, birthMonth, birthYear, imgSrc, id, breed);
     } else {
-        newPet = new Pet(name, species, sex, birthMonth, birthYear, imgSrc, id);
+        newPet = new Pet(name, species, sex, birthMonth, birthYear, imgSrc, id, breed);
     }
     return newPet;
 }   

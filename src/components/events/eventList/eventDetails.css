@@ -67,7 +67,7 @@
 }
 
 .petBriefName {
-    font-size: 35px;
+    font-size: 40px;
     grid-column: 1 / 2;
     justify-self: end;
     padding: 0 10px;

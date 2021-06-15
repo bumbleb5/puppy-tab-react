@@ -4,7 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const pets = {
     cat: 'cat',
     dog: 'dog',
-    other: 'paw'
+    other: 'paw',
+    bird: 'kiwi-bird',
+    fish: 'fish',
+    horse: 'horse'
 };
 
 class PetIcon extends React.Component {

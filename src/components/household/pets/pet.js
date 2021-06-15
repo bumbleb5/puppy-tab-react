@@ -1,5 +1,5 @@
 class Pet {
-    constructor(name, species, sex, birthMonth, birthYear, imgSrc, id) {
+    constructor(name, species, sex, birthMonth, birthYear, imgSrc, id, breed) {
         this._name = name;
         this._species = species;
         this._sex = sex;
@@ -7,6 +7,7 @@ class Pet {
         this._birthYear = birthYear;
         this._imgSrc = imgSrc;
         this.id = id;
+        this.breed = breed;
     }
     get name() {
         return this._name;

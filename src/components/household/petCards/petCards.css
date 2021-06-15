@@ -21,6 +21,13 @@
     padding: 10px;
 }
 
+.PetCards .petCardNameLink, .petCardNameLink a {
+    font-size: 55px;
+    padding: 10px;
+    color: #011936;
+    text-decoration: none;
+}
+
 .PetCards th {
     text-align: left;
 }
@@ -49,4 +56,6 @@
     justify-content: center;
     align-items: center;
     display: flex;
+    border-color: #3E454D;
+    border-style: solid;
 }
