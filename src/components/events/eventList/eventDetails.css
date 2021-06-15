@@ -32,6 +32,11 @@
     text-align: center;
 }
 
+.petBriefImgDiv svg {
+    font-size: 70px;
+    color: #3E454D;
+}
+
 /* Styles for eventDetails.js */
 
 #eventListContianer {

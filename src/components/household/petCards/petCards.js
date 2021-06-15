@@ -2,6 +2,7 @@ import React from 'react';
 import './petCards.css';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import PetIcon from '../../sharedComponents/petIcon';
 
 // old way of image
 {/* <img className="PetPicture" src={ this.props.pet.imgSrc } alt={ this.props.pet.name }></img> */}
@@ -12,7 +13,7 @@ class PetCards extends React.Component {
         return (
             <div className="PetCards">
                     <div className="PetPictureFrame">
-                        <Link className="petPictureLink" to={"/eventList/" + this.props.petId} pet={ this.props.pet }><FontAwesomeIcon icon="paw" /></Link>
+                        <Link className="petPictureLink" to={"/eventList/" + this.props.petId} pet={ this.props.pet }><PetIcon petSpecies={this.props.pet.species}/></Link>
                         {/* <FontAwesomeIcon icon="paw" /> */}
                     </div>
                 <table>

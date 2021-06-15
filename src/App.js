@@ -18,9 +18,9 @@ import EventList from './components/events/eventList/eventList';
 import EventDetails from './components/events/eventList/eventDetails';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faPaw } from '@fortawesome/free-solid-svg-icons';
+import { faPaw, faCat, faDog, faHorse, faFish, faKiwiBird } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faPaw);
+library.add(faPaw, faCat, faDog, faHorse, faFish, faKiwiBird);
 
 
 class App extends React.Component {

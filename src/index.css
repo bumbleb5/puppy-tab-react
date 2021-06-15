@@ -25,3 +25,8 @@ code {
     color: #FAFAFA;
     text-decoration: none;
 } */
+
+.PetPictureFrame svg {
+    font-size: 100px;
+    color: #3E454D;
+}

@@ -3,6 +3,8 @@ import eventService from '../../../services/event.service';
 import petService from '../../../services/pet.service';
 import { Link } from 'react-router-dom';
 import './eventDetails.css';
+import PetIcon from '../../sharedComponents/petIcon';
+
 
 const sortEventArr = (eventArr) => {
     eventArr = eventArr.sort((a, b) => {
@@ -58,7 +60,8 @@ class EventList extends React.Component {
                         </div>
 
                         <div className="petBriefImgDiv">
-                            <img className="petBriefImg" src={`/` + this.state.pet.imgSrc } alt={ this.state.pet.name }></img>
+                            {/* <img className="petBriefImg" src={`/` + this.state.pet.imgSrc } alt={ this.state.pet.name }></img> */}
+                            <PetIcon petSpecies={ this.state.pet.species }/>
                         </div>
 
                         <div className="petBriefBreed">
