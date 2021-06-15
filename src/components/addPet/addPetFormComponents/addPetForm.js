@@ -57,23 +57,28 @@ class AddPetForm extends React.Component {
     }
 
     async handleSubmit(event) {
-        event.preventDefault();
-        //let petID = uuidv4();
-        //this.setState({ petID: petID });
-        const stringifiedPet = JSON.stringify(this.state);
-        //localStorage.setItem(this.state.petID, stringifiedPet);
-        console.log(stringifiedPet);
-        
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: stringifiedPet
-        };
-        const response = await fetch('/pets', requestOptions);
-        const data = await response.json();
-        // this.setState({ postId: data.id });
-        alert('A profile was submitted for ' + this.state.addPetName);
-        window.location.reload();
+        if (this.state.addPetName === '' || this.state.petSpecies === '') {
+            event.preventDefault();
+            alert('Pet profile must include name and species');
+        } else {
+            event.preventDefault();
+            //let petID = uuidv4();
+            //this.setState({ petID: petID });
+            const stringifiedPet = JSON.stringify(this.state);
+            //localStorage.setItem(this.state.petID, stringifiedPet);
+            console.log(stringifiedPet);
+            
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: stringifiedPet
+            };
+            const response = await fetch('/pets', requestOptions);
+            const data = await response.json();
+            // this.setState({ postId: data.id });
+            alert('A profile was submitted for ' + this.state.addPetName);
+            window.location.reload();
+        }
     }
 
     render() {

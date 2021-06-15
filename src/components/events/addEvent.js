@@ -97,18 +97,24 @@ class AddEvent extends React.Component {
             providerName: conditionalValue !== 'medication' ? this.state.providerNameOrMedication : '',
             medication: conditionalValue === 'medication' ? this.state.providerNameOrMedication : ''
         };
-        const stringifiedEvent = JSON.stringify(eventDetails);
-        console.log(stringifiedEvent);
-        
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: stringifiedEvent
-        };
-        const response = await fetch('/events', requestOptions);
-        const data = await response.json();
-        alert('A '+ this.state.eventType + ' event was submitted');
-        window.location.reload();
+
+        if (eventDetails.petId === '' || eventDetails.eventType === '') {
+            event.preventDefault();
+            alert('Must select pet and event type');
+        } else {
+            const stringifiedEvent = JSON.stringify(eventDetails);
+            console.log(stringifiedEvent);
+            
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: stringifiedEvent
+            };
+            const response = await fetch('/events', requestOptions);
+            const data = await response.json();
+            alert('A '+ this.state.eventType + ' event was submitted');
+            window.location.reload();
+        }
     }
 
     handleEventTypeChange(e) {
