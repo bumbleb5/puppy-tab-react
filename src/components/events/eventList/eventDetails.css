@@ -91,11 +91,19 @@
 
 .petBriefAge {
     font-size: 25px;
-    grid-column: 2 / 3;
-    justify-self: start;
+    grid-column: 1;
+    /* justify-self: start; */
     align-self: start;
     padding: 0 15px;
 
+}
+
+.petBriefVet {
+    font-size: 25px;
+    grid-column: 2;
+    justify-self: start;
+    align-self: start;
+    padding: 0 15px;
 }
 
 .petBriefImg {

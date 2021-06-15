@@ -46,6 +46,8 @@ class EventList extends React.Component {
                 <div>Hold tight...we're getting your pet's info!</div>
             )
         }
+        let breed = this.state.pet.breed;
+        console.log(this.state);
         return (
             <div>
 
@@ -64,13 +66,24 @@ class EventList extends React.Component {
                             <PetIcon petSpecies={ this.state.pet.species }/>
                         </div>
 
-                        <div className="petBriefBreed">
-                            <p>{ this.state.pet.breed }</p>
-                        </div>
-
                         <div className="petBriefAge">
+                            <p>Age: </p>
                             <p>{ this.state.pet.age } years</p>
                         </div>
+
+                        {(function() {
+                            if (breed) {
+                                return (
+                                    <div className="petBriefVet">
+                                        <p>Breed:</p>
+                                        <p>{ breed }</p>
+                                    </div>
+                                );
+                            }
+                        })()}
+                        
+                        
+
 
                     </div>
 
