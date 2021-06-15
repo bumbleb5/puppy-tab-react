@@ -55,12 +55,12 @@
     grid-row: 1 / 2;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr 1fr;
+    grid-template-rows: 1.5fr 1fr;
     border: 2px solid #011936;
     border-radius: 25px;
     background-color: #FAFAFA;
     align-items: center;
-    height: 250px;
+    height: 275px;
     max-width: 330px;
     position: relative;
     top: 20px;
