@@ -12,9 +12,10 @@ function petProcessor (petObj) {
     let birthYear = petObj.birthYear;
     let imgSrc = petObj.imgSrc;
     let id = petObj.id;
-    if (!imgSrc) {
-        imgSrc = 'media/cat.png';
-    }
+    // if (!imgSrc) {
+    //     // imgSrc = 'media/cat.png';
+        
+    // }
     let breed = petObj.breed;
     // creating new pet objects
     if (species === 'dog') {

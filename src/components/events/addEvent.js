@@ -22,8 +22,7 @@ class AddEvent extends React.Component {
             eventType: '',
             eventDate: '',
             eventNotes: '',
-            providerName: '',
-            medication: ''
+            providerNameOrMedication: ''
         };
         this.handlePetSelect = this.handlePetSelect.bind(this);
         this.handleEventSelect = this.handleEventSelect.bind(this);
@@ -95,8 +94,8 @@ class AddEvent extends React.Component {
             eventType: this.state.eventType,
             eventDate: this.state.eventDate,
             eventNotes: this.state.eventNotes,
-            providerName: this.state.providerName,
-            medication: this.state.medication
+            providerName: conditionalValue !== 'medication' ? this.state.providerNameOrMedication : '',
+            medication: conditionalValue === 'medication' ? this.state.providerNameOrMedication : ''
         };
         const stringifiedEvent = JSON.stringify(eventDetails);
         console.log(stringifiedEvent);
@@ -181,8 +180,8 @@ class AddEvent extends React.Component {
                     </div>
 
                     <div className="formField">
-                        <label className="addEventFormLabel" htmlFor={ conditionalValue }>{ conditionalInput }</label><br/>
-                        <input type="text" id="vetEventClinic" className="addEventInput" name={ conditionalValue } value={ this.state[conditionalValue] } onChange={ this.handleInputChange }/>
+                        <label className="addEventFormLabel" htmlFor="vetEventClinic">{ conditionalInput }</label><br/>
+                        <input type="text" id="vetEventClinic" className="addEventInput" name="providerNameOrMedication" value={ this.state.providerNameOrMedication } onChange={ this.handleInputChange }/>
                     </div>
 
                     {/* if/else statement maybe instead of ConditionalInput */}
